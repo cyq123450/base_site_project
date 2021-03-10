@@ -1,0 +1,33 @@
+server:
+  port: 9876
+
+spring:
+  profiles:
+    active: dev
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://bj-cdb-73ejfibu.sql.tencentcdb.com:60900/product?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: Zhang123456song$
+
+  thymeleaf:
+    prefix: classpath:/public/
+    suffix: .html
+    mode: HTML5
+    encoding: UTF-8
+    content-type: text/html
+    cache: false
+
+thymeleaf:
+  prefix: classpath:/public/
+  suffix: .html
+
+mybatis:
+  mapper-locations: classpath:mybatis/*.xml
+
+
+
+dezhou:
+  code: 371400000000
+  url: http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2013/37/3714.html

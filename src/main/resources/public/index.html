@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>基站查询</title>
+</head>
+<body>
+    <h1>基站查询服务</h1>
+    <form action="/api/city/caculate"  method="get">
+        村庄精度：<input type="text" name="city.longitude"><br>
+        村庄维度：<input type="text" name="city.latitude"><br>
+        查询半径/米：<input type="text" name="city.r"><br>
+        <input type="submit" value="计算">
+    </form>
+
+    <br><br>
+    <h3>村庄位置</h3>
+    <table border="1">
+        <tr>
+            <td>村庄精度</td>
+            <td>基村庄维度</td>
+            <td>查询半径/米</td>
+        </tr>
+        <tr>
+            <td th:text="${city.longitude}"></td>
+            <td th:text="${city.latitude}"></td>
+            <td th:text="${city.r}"></td>
+        </tr>
+    </table>
+
+    <br><br>
+    <h3>基站查询结果</h3>
+    <table border="1">
+        <tr>
+            <td>基站中文名称</td>
+            <td>基站小区名称</td>
+            <td>基站精度</td>
+            <td>基站维度</td>
+            <td>距目标点距离/米</td>
+        </tr>
+        <tr th:each="site : ${sites}">
+            <td th:text="${site.cnName}"></td>
+            <td th:text="${site.lifeName}"></td>
+            <td th:text="${site.longitude}"></td>
+            <td th:text="${site.latitude}"></td>
+            <td th:text="${site.distance}"></td>
+        </tr>
+    </table>
+</body>
+</html>
